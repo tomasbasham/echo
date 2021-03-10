@@ -1,0 +1,33 @@
+[package]
+name = "echo"
+version = "0.1.0"
+authors = ["Tomas Basham <tomasbasham@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tonic = "0.4"
+# tonic-reflection = "0.1"
+tonic-health = "0.3"
+prost = "0.7"
+
+tokio = { version = "1.0", features = [
+  "rt-multi-thread",
+  "macros",
+  "sync",
+  "time"
+] }
+
+opentelemetry = { version = "0.12.0", features = [
+  "async-std"
+] }
+
+opentelemetry-otlp = { version = "0.5.0", features = [
+  "tonic",
+  "tls",
+  "tls-roots"
+] }
+
+[build-dependencies]
+tonic-build = "0.4"
